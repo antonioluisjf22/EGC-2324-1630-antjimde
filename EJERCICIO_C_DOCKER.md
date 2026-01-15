@@ -41,7 +41,7 @@ command: ash -c "python manage.py migrate && gunicorn -w 4 decide.wsgi --timeout
 cd /home/anton/examenes_egc/EGC-2324-1630-antjimde/docker
 
 # Construir e iniciar los servicios
-docker-compose up --build
+docker compose up --build
 ```
 
 ### Verificar en navegador:
@@ -64,8 +64,9 @@ docker-compose up --build
 ### Detener Docker:
 
 ```bash
-docker-compose down
+docker compose down -v 
 ```
+-v para borrar volúmenes
 
 ---
 
