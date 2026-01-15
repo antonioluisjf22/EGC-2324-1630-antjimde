@@ -3,9 +3,9 @@
   become: yes
   become_user: decide
   git:
-    repo: 'https://github.com/wadobo/decide.git'
+    repo: 'https://github.com/antonioluisjf22/EGC-2324-1630-antjimde.git'
     dest: /home/decide/decide
-    version: master
+    version: main
 
 - name: Python virtualenv
   become: yes
