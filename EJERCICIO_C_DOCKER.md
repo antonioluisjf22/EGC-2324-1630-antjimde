@@ -49,13 +49,28 @@ docker compose up --build
 1. **Acceder a admin:**
    - URL: `https://localhost:8000/admin`
    - Usuario: `admin`
-   - Contraseña: `admin` (o la que hayas configurado)
+   - Contraseña: `admin`
 
-2. **Verificar que funciona:**
+2. **Crear superusuario (si no existe):**
+   ```bash
+   docker exec -it decide_web ash
+   cd /app/decide
+   python manage.py shell
+   ```
+   
+   Dentro del shell:
+   ```python
+   from django.contrib.auth.models import User
+   User.objects.create_superuser('admin', 'admin@example.com', 'admin')
+   print("Admin creado!")
+   exit()
+   ```
+
+3. **Verificar que funciona:**
    - Debería ver el panel de administración de Django
    - Si aparece, Docker está desplegado correctamente ✅
 
-3. **Logs de workers:**
+4. **Logs de workers:**
    ```bash
    docker logs decide_web
    ```
@@ -77,3 +92,8 @@ docker compose down -v
 - ✅ Gunicorn configurado con 4 workers
 - ✅ docker-compose.yml actualizado
 - ✅ Admin accesible en `https://localhost:8000/admin`
+
+## Crear de un superuser manual en el contenedor
+docker exec -it decide_web ash
+cd /app/decide
+python manage.py createsuperuserd
