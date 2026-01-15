@@ -1,7 +1,6 @@
-name: Python application
+name: Django Tests
 
 on: [push]
-  
 
 jobs:
   build:
