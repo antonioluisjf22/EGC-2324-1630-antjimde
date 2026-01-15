@@ -40,7 +40,7 @@ jobs:
     - name: Run tests
       run: |
         cd decide
-        ./manage.py test  --keepdb
+        pytest
 
   build-python-3-11:
 
@@ -79,4 +79,4 @@ jobs:
     - name: Run tests
       run: |
         cd decide
-        ./manage.py test  --keepdb
+        pytest
