@@ -53,8 +53,10 @@
     <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
     <script src="https://unpkg.com/bootstrap@5.2.2/dist/js/bootstrap.js"></script>
 
+    {{ voting|json_script:"voting-data" }}
+
     <script>
-        var voting = {{voting|safe}};
+        var voting = JSON.parse(document.getElementById('voting-data').textContent);
         const { createApp } = Vue
         createApp({
             delimiters: ['[[', ']]'],
