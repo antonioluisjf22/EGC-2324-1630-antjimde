@@ -6,11 +6,11 @@ on: [push]
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     services:
       postgres:
-        image: postgres:14.9
+        image: postgres:15
         env:
           POSTGRES_USER: decide
           POSTGRES_PASSWORD: decide
